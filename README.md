@@ -33,3 +33,11 @@ A workshop using the more advacned features of Steeltoe (service discovery, conf
 ```bash
 cf push steelte-advanced-workshop -b staticfile_buildpack -p .\steeltoe-advanced\
 ```
+
+## PASW101-SteeltoeBasics-AzureSql
+
+This is the above 3 workshop labs (not including Steeltoe-Advanced) as one workshop. To push the workshop to PAS, for hosting...
+
+```bash
+cf push 101-basics-sql-workshop -b staticfile_buildpack -p .\pasw101-steeltoebasics-azuresql\
+```
