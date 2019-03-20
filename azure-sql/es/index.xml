@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pivotal Workshop</title>
+    <link>/es/</link>
+    <description>Recent content on Pivotal Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="/es/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>/es/demos/intro-creds/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/es/demos/intro-creds/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/es/demos/setup-environment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/es/demos/setup-environment/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/es/demos/bind-sb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/es/demos/bind-sb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/es/demos/dbcontext/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/es/demos/dbcontext/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/es/demos/push-microservice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/es/demos/push-microservice/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/es/demos/next-steps/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/es/demos/next-steps/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

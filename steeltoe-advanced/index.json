@@ -1,0 +1,106 @@
+[
+{
+	"uri": "/workshop/",
+	"title": "Advanced Steeltoe Workshop Workshop",
+	"tags": [],
+	"description": "",
+	"content": " Pivotal Platform Architecture helps companies learn how to solve IT and engineering challenges. We encourage you to explore our workshops. Build the future with Pivotal!  Advanced Steeltoe Workshop Workshop\n  Workshop Concepts deck Workshop Demos 1. Overview 2. Basic Push 3. Database 4. Service Discovery 5. Config Server 6. Hystrix 7. Actuators, Tracing \u0026amp; Metrics 8. Security  "
+},
+{
+	"uri": "/concepts/",
+	"title": "Concepts",
+	"tags": [],
+	"description": "",
+	"content": " Concepts Learn the basics, understand architectures, and fill-in the core-concepts behind the workshop.\n"
+},
+{
+	"uri": "/demos/",
+	"title": "Demos",
+	"tags": [],
+	"description": "",
+	"content": " Demos Build architectures, and test the core-concepts behind the workshop.\n"
+},
+{
+	"uri": "/concepts/slides/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": "\n "
+},
+{
+	"uri": "/demos/1_overview/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": " PCF .NET Demo This solution demonstrates the use of multiple microservices built using multiple .NET technologies running on PCF. The primary goal is to show that PCF can handle legacy code that existed as early as .NET version 1.0, with common stacks introduced as part of .NET framework up to the newest .NET core application. The solution demonstrates a natural progression / evolution that a customer would take towards making their apps cloud native.\nTechnical Features Demonstrated: - Deploying and running a .NET Core MVC application on the Linux stack. - Run a RESTful API service using Entity Framework. - Deploying and running a .NET Framework WebForms application on Windows stack. - Run an ASMX service using traditional ADO.NET on Windows stack. - Run a WCF service with Entity Framework on Windows stack. - OWIN bootstrap into IIS - Service discovery with Eureka. - Circuit breaker with Hystrix. - Config server with Git repo. - Bind to a MySQL database Marketplace service.\nSolution Projects The solution revolves around a simple application that displays random quotes when a button is pressed. It also features a Kill command to simulate application failure. * FunnyQuotesUIForms - Web forms GUI. Depends on Eureka and Config Server. Depending on config value served by Config Server, the source of the messages shown will be switched between local in memory, ASMX service, WCF service, or REST. * FunnyQuotesLegacyService - Contains ASMX service and WCF service implementations for serving messages. * ASMX fetches it\u0026rsquo;s data from database connectivity via classic DataSet / DataAdapter approach. * WCF featches data from database using a more modern approach using Entity Framework. * FunnyQuotesServicesOwin - Rest based implementation using OWIN with WebAPI. Intended to be run on Windows stack with HWC. * FunnyQuotesUICore - Modern .NET Core version running on Linux stack. Calls backend services directly from javascript. * FunnyQuotesCookieDatabase - encapsulates the Entity Framework context. * FunnyQuotesCommon - contains list of quotes for local use.\nHow to build  Open Visual Studio. Publish each product using supplied publish profile. Compiled assemblies are output to \\publish\\ folder. Copy manifest.yml file into each publish folder, making necessary changes per respective apps. Optional. Fork the funny-quote-config repository (see link below), change the url in gitconfig.json to point to the forked url. This will allow demonstrating different client types from the front end, for example, rest, wcf, etc\u0026hellip; For each lab, there are two options for creating services: 1) Run create-services.bat in \\scripts folder to create all marketplace services needed for all labs, or 2) Create same services as you progress through each lab that requires their use.  NOTES  If there is a need to build and publish more than once, it is easier to add the manifest file to each project and make required changes per app. On the Properties tab, set Copy to Output Directory to Copy Always. This will add the manifest every time the app is built and published.  Prerequisites  Visual Studio 2017 with .NET core support Docker with images for  Config server Eureka Hystrix dashboard MySQL   Source Repo: https://github.com/Pivotal-Field-Engineering/funny-quotes-demo\nConfig Repo: https://github.com/Pivotal-Field-Engineering/funny-quotes-config\n"
+},
+{
+	"uri": "/demos/2_basic-push/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": " Pushing the apps Goals  Show how pushing 4.x apps and Core apps works the same. Target both Linux and Windows stacks.  Steps  Push the backend - FunnyQuotesServicesOwin.\n \u0026gt; cd FunnyQuotesServicesOwin \u0026gt; cf push FunnyQuotesServicesOwin   2.Push the .NET Core front end - FunnyQuotesUICore.\n``` \u0026gt; cd FunnyQuotesUICore \u0026gt; cf push FunnyQuotesUICore ```   Explain output while app is being pushed. Access the app URL, get a few funny quotes, get some laughs. :) Show log output\n \u0026gt; cf logs FunnyQuotesUICore --recent  Push the backend - FunnyQuotesLegacyService.\n \u0026gt; cd FunnyQuotesLegacyService \u0026gt; cf push FunnyQuotesLegacyService -s windows2016  Push the 4.x WebForms front end - FunnyQuotesUIForms.\n \u0026gt; cd FunnyQuotesUIForms \u0026gt; cf push FunnyQuotesUIForms -s windows2016   _Explain Hosted Web Core buildpack (kernel of IIS)  Show log tailing while pushing / starting up\n \u0026gt; cf logs FunnyQuotesUIForms  Optional: Press Kill button and show recovery\n Optional: Scale the app\n  "
+},
+{
+	"uri": "/demos/3_database/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": " Databases Run App locally and show db initialization via EF code first  Run MySQL locally via docker\n\u0026gt; docker pull mysql \u0026gt; docker run --name mysql -p 3306:3306/tcp -d -e MYSQL_ALLOW_EMPTY_PASSWORD=yes mysql:5.7  Connect to MySQL via CLI\n\u0026gt; docker run -it --link mysql:mysql --rm mysql sh -c \u0026quot;exec mysql -h$MYSQL_PORT_3306_TCP_ADDR -P$MYSQL_PORT_3306_TCP_PORT -uroot -p$MYSQL_ENV_MYSQL_ROOT_PASSWORD\u0026quot;  Create empty database\n\u0026gt; CREATE DATABASE funnyquotes;  Launch FunnyQuotesServiceOwin locally, either from Visual Studio or Rider (must be on Windows).\n Navigate to http://localhost:61111/api/funnyquotes/random to initialize database.\n Demonstrate database initialization by querying the database. From MySQL CLI:\n\u0026gt; USE funnyquotes; \u0026gt; SHOW Tables; \u0026gt; select * from FunnyQuotes;  Show migration table and it\u0026rsquo;s content\n\u0026gt; DESCRIBE __MigrationHistory; \u0026gt; select MigrationId, ContextKey, ProductVersion From __MigrationHistory;   Demo creating new migration  Change FunnyQuotesCookieDatabase.FunnyQuote class to add a new field:\npublic class FunnyQuote { public int Id { get; set; } public string Quote { get; set; } public long Views { get; set; } }  From Visual Studio Package Manager console, run\n\u0026gt; EntityFramework\\Add-Migration -Name ViewCountField -Project FunnyQuotesCookieDatabase -StartUpProject FunnyQuotesLegacyService  Highlight that startup project argument is used to determine the connection to the database in order to compare the schema. Web.Config must have ConnectionString section even if it\u0026rsquo;s not used in normal course of the application to run this command.\n Show the new migration that was added under FunnyQuotesCookieDatabase\\Migrations. Show that at this point the database is still based on old schema.  \u0026gt; DESCRIBE FunnyQuotes;  Run FunnyQuotesServiceOwin again and hit endpoint that uses the database to force migration to be applied.\nhttp://localhost:61111/api/funnyquotes/random\n Confirm that new migration is applied on the database.\nDESCRIBE FunnyQuotes; select MigrationId, ContextKey, ProductVersion From __MigrationHistory;   The Views column should now be visible and new record in migration table.\nPush to PCF  Provision a MySQL instance from marketplace named mysql-funnyquotes. Push Owin backend\n\u0026gt; cd FunnyQuotesServicesOwin \u0026gt; cf push FunnyQuotesServicesOwin -s windows2016 -b hwc_buildpack  Bind to MySQL service and restart.\n Confirm that everything works by hitting /api/funnyquotes/random endpoint.\n Open up FunnyQuotesServicesOwin.Startup class and explain use of Steeltoe Connectors to initialize db context.\n  Highlight the following lines of code.\n```csharp builder.RegisterMySqlConnection(config); builder.Register(ctx =\u0026gt; // register EF context { var connString = ctx.Resolve\u0026lt;IDbConnection\u0026gt;().ConnectionString; return new FunnyQuotesCookieDbContext(connString); }); ```  Explain that helper methods exist when registering EF Core, but EF 6.x IDbConnection gets auto configured, and we can feed it into EF registration as per above.\n Push FunnyQuotesLegacyService using manifest and explain a restart is not necessary.  "
+},
+{
+	"uri": "/demos/4_service_discovery/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": " Service Discovery Service discovery locally  Pull down docker image.\n \u0026gt; docker pull mayan31370/spring-eureka  Run it.\n \u0026gt; docker run -d --name eureka -p 8761:8080/tcp mayan31370/spring-eureka  Launch FunnyQuotesLegacyService or FunnyQuotesServicesOwin from Visual Studio.\n Check the dashboard http://localhost:8761/ to confirm registration.\n For FunnyQuotesLegacyService, append /FunnyQuoteServiceLegacy.asmx/GetCookie to the url to observe the result.\n For FunnyQuotesServicesOwin, append /funnyquotes/random to the url to observe the result.\n  Service discovery on PCF  Provision the p-service-registry service, the standard plan, and name it \u0026ldquo;eureka\u0026rdquo;. Bind it to FunnyQuotesLegacyService \u0026amp; FunnyQuoteServicesOwin. Restart both. Navigate to service dashboard.  Apps Manager \u0026gt; Space \u0026gt; Services \u0026gt; Eureka \u0026gt; Manage.  Confirm both apps are showing up in the registry.  Explain how we can now resolve the URL endpoint by well known name.\nThings to highlight in code  Open appsettings.json.  Explain eureka:client section when running locally. This will be overriden when running on CloudFoundry.  Open Startup.cs  The line, services.AddDiscoveryClient(Configuration); is used to register services to be discovered. The line, .AddHttpMessageHandler\u0026lt;DiscoveryHttpMessageHandler\u0026gt;(); is to build up the HttpClient factory. The line, app.UseDiscoveryClient(); makes discovery ready for use. Explain the use of HttpClientFactory (new in ASP.NET Core 2.1). Article explaining why it should be used instead of using HttpClient by hand https://www.stevejgordon.co.uk/introduction-to-httpclientfactory-aspnetcore.   "
+},
+{
+	"uri": "/demos/5_config_server/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": " Config Server We want to get FunnyQuotes client to use a different implementation of IFunnyQuotesService to talk to an alternative backend service. There are multiple named implementations registered into dependency injection container. The instance supplied for IFunnyQuotesService is dependent on the config value. We\u0026rsquo;re going to use config settings to swap out the implementation it will use.\nExplaining config server locally  Create a docker instance of config server:\n \u0026gt; docker pull hyness/spring-cloud-config-server \u0026gt; docker run --name configserver -p 8888:8888 -d -e SPRING_CLOUD_CONFIG_SERVER_GIT_URI=https://github.com/Pivotal-Field-Engineering/funny-quotes-config hyness/spring-cloud-config-server  Show how config server serving up values for different apps and profiles:\n http://localhost:8888/FunnyQuotesUIForms/Production http://localhost:8888/FunnyQuotesUICore/Production http://localhost:8888/FunnyQuotesUICore/Development  Explain the usage of environment (second part of URL) to override settings. In .NET Core apps this value comes from ASPNETCORE_ENVIRONMENT environmental variable.\n  On PCF  Fork funny-quotes-config (so you can push to it). Edit gitconfig.json (in root folder) and adjust URL to forked repo. Provision config server from marketplace.\n\u0026gt; cf create-service p-config-server standard config-server -c gitconfig.json  Bind to all 4 applications and restart all apps.\n Open FunnyQuotesUICore and highlight the different provider being used.\n Open up FunnyQuotesUIForms and highlight how it works with legacy stack too.\n Edit git config repo for FunnyQuotesUIForms.yaml. Change ClientType to wcf (possible values are local, wcf, asmx, rest).\n Save settings, commit and push.\n Wait at least 10 seconds and go back to the FunnyQuotesUIForms.\n  Highlight that new provider is picked up without restart of the app.\nOther things to show  Integrated security of config server secured by OAuth. Show VCAP_Services to highlight this fact. Config server is a Java Spring app. Spring uses the same layered config as in .NET core. Environmental variable to set URL of repo is actually using the same config sementics but in Java.  Things to highlight in code  .AddConfigServer(env, logFactory) in Global.cs (legacy apps) or Program.cs (.NET core). Open up appsettings.json.  Explain how name of app comes from spring:application:name. Explain how spring:cloud:config section determines settings when running config server locally.  Different packages Pivotal vs Steeltoe. Difference is OAuth2 security. Pivotal package will work with non secured as well. Using Pivotal package will also add Cloud Foundry VCAP variables as a config source. Show registration and selection of DI instances based on config value in FunnyQuotesUIForms.Global.asmx.cs:\nbuilder.RegisterType\u0026lt;AsmxFunnyQuotesClient\u0026gt;().Named\u0026lt;IFunnyQuoteService\u0026gt;(\u0026quot;asmx\u0026quot;); builder.RegisterType\u0026lt;WcfFunnyQuotesClient\u0026gt;().Named\u0026lt;IFunnyQuoteService\u0026gt;(\u0026quot;wcf\u0026quot;); builder.RegisterType\u0026lt;LocalFunnyQuoteService\u0026gt;().Named\u0026lt;IFunnyQuoteService\u0026gt;(\u0026quot;local\u0026quot;); builder.RegisterType\u0026lt;RestFunnyQuotesClient\u0026gt;().amed\u0026lt;IFunnyQuoteService\u0026gt;(\u0026quot;rest\u0026quot;); // register dynamic resolution of implementation of IFunnyQuoteService based on named implementation defined in the config builder.Register(c =\u0026gt; { var quotesConfig = c.Resolve\u0026lt;IOptionsSnapshot\u0026lt;FunnyQuotesConfiguration\u0026gt;\u0026gt;(); return c.ResolveNamed\u0026lt;IFunnyQuoteService\u0026gt;(quotesConfig.Value.ClientType); })   Feature toggles  Explain using feature toggles to push disabled code into prod and using config to activate it vs branching. Highlight usages of it in codebase for security. Don\u0026rsquo;t enable yet:\n Startup.cs in FunnyQuotesUICore  if (funnyquotesConfig.EnableSecurity) authBuilder.AddCloudFoundryOAuth(Configuration);   Startup.cs in FunnyQuotesServicesOwin.   if(funnyQuotesConfig.EnableSecurity) app.UseCloudFoundryJwtBearerAuthenticationconfig); else app.Use\u0026lt;NoAuthenticationMiddleware\u0026gt;();   "
+},
+{
+	"uri": "/demos/6_hystrix/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": " Hystrix  Create hystrix dashboard on PCF marketplace. Bind to FunnyQuotesUICore \u0026amp; restart. Access Hystrix dashboard (service \u0026gt; manage from App Manager). Access FunnyQuotesUICore GUI and request a few quotes. Show dashboard and successful counts. Stop backend FunnyQuotesServiceOwin. Request quotes from GUI.  Highlight low latency fallback to default message. Show dashboard failed counts (red).  Keep requesting quotes until circuit is triggered.  Highlight fallback requests in open circuit (blue).   Show code  Open FunnyQuotesUICore.Clients.RestFunnyQuotesClient.  Highlight how commands are created. Explain thread isolation based on circuit group name to avoid thread starvation scenario. Because execution happens on different set of threads, access to HttpContext must be properly marshalled. Show use of app.UseHystrixRequestContext() in Startup.cs to do this.  Show services.AddHystrixCommand\u0026lt;RestFunnyQuotesClient.GetQuoteCommand\u0026gt;(\u0026quot;Core.RandomQuote\u0026quot;, \u0026quot;Core.RandomQuote\u0026quot;, Configuration); to register commands into container. Show services.AddHystrixMetricsStream(Configuration); and app.UseHystrixMetricsStream(); to publish metrics to dashboard.  "
+},
+{
+	"uri": "/demos/7_actuators_tracing_and_metrics/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": " Actuators  Launch FunnyQuotesUICore locally. Access http://localhost:60420/cloudfoundryapplication and show different actuator endpoints and data within them. The following screenshot illustrates the output.\n Navigate to the same endpoint on PCF to highlight that it\u0026rsquo;s secured when running on the platform.\n Open up apps manager. (Ensure that app has been opened at least once over https if using self signed certs).\n Highlight special Steeltoe icon (actuators were detected in the app).\n Highlight health check for each instance.\n Show dynamic log levels.\n Show request tracing.\n   Metrics  View the Metrics link of the app. Highlight the following:  Dashboarding \u0026amp; ability to add charts for metrics Events chart Pulling up logs over timeline Different sources of logs (RTR/APP)  Find a log for a router logs for quote requests (search for GET /Home/GetQuote keyword). Access distributed tracing. Highlight the Gantt chart. Note: Automatic log correlation only works in .NET core apps, but you can get Gantt charts out of the box. Will be added in future version of Steeltoe. Manual correlation can be done right now by prefixing all logs with traceid/spanid in incoming headers  Highlight Code  Adding Actuators and enabling them in code. See Startup.cs or Global.asax.cs and search for Actuator. It has to be registered and activated. When using legacy stack with Autofac, adding actuators automatically registers dynamic console logger which is needed to change log levels at runtime.  For .NET core app, open up Program.cs and highlight explicit registration of dynamic console.  Show services.AddDistributedTracing(Configuration); and how it automatically appends headers to any HttpClient invocations (.NET core only).  "
+},
+{
+	"uri": "/demos/8_security/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": " Security Prerequisites:  SSO Tile installed SSO plan called sso-dev is create and has IDP called \u0026ldquo;gcp\u0026rdquo; configured against google. See https://docs.pivotal.io/p-identity/1-5/#gcp You can access SSO admin portal to edit user\u0026rsquo;s permissions  Steps  Create an instance of SSO from marketplace (call service sso) Bind it to FunnyQuotesUICore \u0026amp; FunnyQuotesServicesOwin Edit application.yml in config repo and enable security. Commit + push Restart both apps Check manifest.yml for SSO settings to use for FunnyQuotesUICore.  Adjust SSO_REDIRECT_URIS to be correct based on environment Push the app using the manifest (delete other apps from it)  Access the FunnyQuotesUICore and get a cookie. You should be redirected to authenticate with google Access the sso plan from apps manager. Explain:  How adding apps works, their types and how they map on to OAuth2 flows How managing resources declared by app  Click Kill button and highlight that different set of permissions is required Go to SSO admin portal. Edit plan IDP, manage users. Add resource funnyquote.kill to the previously logged in user. Get a new token by logging out and relogging. Kill command should now work  "
+},
+{
+	"uri": "/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/",
+	"title": "Pivotal Workshop",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]

@@ -1,0 +1,106 @@
+[
+{
+	"uri": "/pt/workshop/",
+	"title": "Advanced Steeltoe Workshop Workshop",
+	"tags": [],
+	"description": "",
+	"content": " Pivotal Platform Architecture helps companies learn how to solve IT and engineering challenges. We encourage you to explore our workshops. Build the future with Pivotal!  Advanced Steeltoe Workshop Workshop\n  Workshop Conceitos deck Workshop Demos 1. Overview 2. Basic Push 3. Database 4. Service Discovery 5. Config Server 6. Hystrix 7. Actuators, Tracing \u0026amp; Metrics 8. Security  "
+},
+{
+	"uri": "/pt/concepts/",
+	"title": "Conceitos",
+	"tags": [],
+	"description": "",
+	"content": " Conceitos Aprenda o básico, entenda arquiteturas e preencha os principais conceitos por trás do workshop.\n"
+},
+{
+	"uri": "/pt/demos/",
+	"title": "Demos",
+	"tags": [],
+	"description": "",
+	"content": " Demos Construa arquiteturas e teste os principais conceitos por trás do workshop.\n"
+},
+{
+	"uri": "/pt/concepts/slides/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/pt/demos/1_overview/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/pt/demos/2_basic-push/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/pt/demos/3_database/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/pt/demos/4_service_discovery/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/pt/demos/5_config_server/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/pt/demos/6_hystrix/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/pt/demos/7_actuators_tracing_and_metrics/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/pt/demos/8_security/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/pt/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/pt/",
+	"title": "Pivotal Workshop",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/pt/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]

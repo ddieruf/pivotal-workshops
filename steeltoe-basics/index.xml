@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pivotal Workshop</title>
+    <link>/</link>
+    <description>Recent content on Pivotal Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>/concepts/advanced-steeltoe/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/concepts/advanced-steeltoe/</guid>
+      <description>
+ </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/demos/intro-creds/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/demos/intro-creds/</guid>
+      <description> Introduction &amp;amp; Credentials Today&amp;rsquo;s workshop you will get hands on experience with environment variables, user provided services, different areas of the Steeltoe framework, and getting in depth with Pivotal&amp;rsquo;s Application Manager.
+Your Workshop proctor should have provided URL&amp;rsquo;s and credentials prior to beginning the labs. Please have this information handy for the next lab.
+You will need:  API URL of the Workshop foundation URL of App Manager User name and password to access the foundation Org and Space associated with your student account  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/demos/setup-environment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/demos/setup-environment/</guid>
+      <description>Setup Desktop Environment Goal The labs in this workshop make use of Powershell, the Cloud Foundry cli (cf cli), and local environment variables. The following steps will confirm you have the correct configuration.
+Prerequisites  Visual Studio (min 2015) Web Browser (Chrome, Firefox, Edge, Safari)(Not Internet Explorer) Powershell Internet connection  Download and Validate cf cli  Download the cli.
+ Unpack the zip file.
+ Double click cf-installer.exe to begin installation.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/demos/env-vars/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/demos/env-vars/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/demos/cups/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/demos/cups/</guid>
+      <description>User Provided Services with Steeltoe Goal Environment variables are a very powerful feature of cloud native applications but sometimes we need all the apps in a given space (or environment) to share settings. User provided services are a great way to accomplish this. In this lab we will create a service that is available to all apps in a given space via environment variables.
+Note, this lab assumes you already have the Steeltoe template app opened in Visual Studio and you have already logged in to a foundation with the cf cli.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/demos/actuators/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/demos/actuators/</guid>
+      <description>Include Steeltoe Actuators and Create a Custom Health Check Goal Assuming you have already pushed an app based on the Steeltoe Cloud Foundry templates, this lab will review what additions were made in the project to enable Actuators and the automatic benefits in App Manager.
+Prerequisites  Visual Studio (min 2015) Internet Access Web Browser (Chrome, Firefox, Edge, Safari)(Not Internet Explorer)  Add Steeltoe Management Actuators to the app  Open the Startup.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/demos/push-microservice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/demos/push-microservice/</guid>
+      <description>Push the Microservice to Pivotal Application Services Platform Goal Using Visual Studio, compile the app to create an artifact. Then push the artifact to the Platform, for deployment.
+Prerequisites  Visual Studio (min 2015) PAS API Access PAS App Manager Access  Create the App Artifact  With the Steeltoe Microservice app opened in Visual Studio, right click on the project name and choose publish. (No need to build or restore, it will happen automatically)  The &amp;ldquo;Publish&amp;rdquo; window will open where you can choose the FolderProfile.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/demos/using-actuators/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/demos/using-actuators/</guid>
+      <description>App Manager with Management Actuators Goal Now that you have pushed an app to the foundation that implments Steeltoe Actuators, lets explore how App Manager makes that data available for debugging and analysis.
+Prerequisites  Internet Access Web Browser (Chrome, Firefox, Edge, Safari)(Not Internet Explorer)  Discover how App Manager works with each actuator endpoint  Open the App Manager website in a browser.
+ Navigate to your app&amp;rsquo;s home page.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/demos/logging/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/demos/logging/</guid>
+      <description>Steeltoe Dynamic Logging Goal Assuming you have already pushed an app based on the Steeltoe Cloud Foundry templates, this lab will review what additions were made in the project to enable dynamic logging and the automatic benefits in App Manager.
+Prerequisites  Visual Studio (min 2015) Internet Access Web Browser (Chrome, Firefox, Edge, Safari)(Not Internet Explorer)  Enable Steeltoe dynamic logging  There are additional features that came pre-configured in the Steeltoe template app.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/demos/next-steps/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/demos/next-steps/</guid>
+      <description>Continuing Your .NET Cloud Native Journey Congratulations you&amp;rsquo;ve completed Steeltoe .NET Microservices Workshop!
+Continue to learn and experience more about cloud native best practices, with Pivotal.
+  Pivotal Education Services Self Guided Learning Pivotal Workshops     The Platform Acceleration Lab (PAL) is an immersive, best practices set of courses that enables developers and architects to develop new applications, move applications (replatforming), and modernize existing applications on Pivotal Cloud Foundry.</description>
+    </item>
+    
+  </channel>
+</rss>

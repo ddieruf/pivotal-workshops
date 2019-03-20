@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Démos on Pivotal Workshop</title>
+    <link>/fr/demos/</link>
+    <description>Recent content in Démos on Pivotal Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="/fr/demos/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>/fr/demos/intro-creds/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/demos/intro-creds/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/fr/demos/setup-environment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/demos/setup-environment/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/fr/demos/create-microservice-win/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/demos/create-microservice-win/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/fr/demos/explore-appmanager/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/demos/explore-appmanager/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/fr/demos/attach-autoscaler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/demos/attach-autoscaler/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/fr/demos/add-route/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/demos/add-route/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/fr/demos/pasw-to-steeltoe-basics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/demos/pasw-to-steeltoe-basics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/fr/demos/env-vars-win/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/demos/env-vars-win/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/fr/demos/cups/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/demos/cups/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/fr/demos/actuators/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/demos/actuators/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/fr/demos/using-actuators/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/demos/using-actuators/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/fr/demos/logging/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/demos/logging/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/fr/demos/steeltoe-basics-to-steeltoe-aszure-storage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/demos/steeltoe-basics-to-steeltoe-aszure-storage/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/fr/demos/bind-sb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/demos/bind-sb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/fr/demos/dbcontext/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/demos/dbcontext/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/fr/demos/push-microservice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/demos/push-microservice/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/fr/demos/next-steps/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/fr/demos/next-steps/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

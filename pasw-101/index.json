@@ -1,0 +1,99 @@
+[
+{
+	"uri": "/workshop/",
+	"title": "Pivotal Application Services for Windows Workshop",
+	"tags": [],
+	"description": "",
+	"content": " Pivotal Platform Architecture helps companies learn how to solve IT and engineering challenges. We encourage you to explore our workshops. Build the future with Pivotal!  Pivotal Application Services for Windows Workshop\n  Workshop Concepts Workshop Demos Introduction \u0026amp; Credentials Setup Environment Create .NET Microservice Push Microservice to PASW Explore Applications Manager Attach an autoscaler Add a new route Next Steps  "
+},
+{
+	"uri": "/concepts/",
+	"title": "Concepts",
+	"tags": [],
+	"description": "",
+	"content": " Concepts Learn the basics, understand architectures, and fill-in the core-concepts behind the workshop.\n"
+},
+{
+	"uri": "/demos/",
+	"title": "Demos",
+	"tags": [],
+	"description": "",
+	"content": " Demos Build architectures, and test the core-concepts behind the workshop.\n"
+},
+{
+	"uri": "/demos/intro-creds/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": " Introduction \u0026amp; Credentials In today\u0026rsquo;s workshop you will get hands on experience creating a templated app in Visual Studio, reviewing the cloud foundry manifest, pushing the app to Pivotal Application Services, attaching an auto-scaler to the app, and trying out different routes.\nYour workshop proctor should have provided URL\u0026rsquo;s and credentials prior to beginning the labs. Please have this information handy for the next lab.\nYou will need:  API URL of your workshop Pivotal Cloud Foundry (PCF) foundation URL of App Manager User name and password to login to the foundation Org and Space associated with the user account  "
+},
+{
+	"uri": "/demos/setup-environment/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": " Setup Desktop Environment Goal The labs in this workshop make use of Powershell, the Cloud Foundry cli (cf cli), and local environment variables. The following steps will confirm you have the correct configuration.\nPrerequisites  Visual Studio (min 2015) Web Browser (Chrome, Firefox, Edge, Safari)(Not Internet Explorer) Powershell Internet connection  Download and Validate cf cli  Download the cli.\n Unpack the zip file.\n Double click cf-installer.exe to begin installation.\n When prompted, click Install, then Finish\n To verify your installation, open powershell and type cf --version. If your installation was successful, the cf cli version is returned. You may need to restart your powershell window for the cli to work properly.\n  If you don\u0026rsquo;t have permission to install the cli, download the cli executable  Download the cli exe.\n Unpack the zip file.\n Copy the cf.exe executable to c:\\Windows\\System32 folder. (this is to add cf to your path env variable)\n To verify your installation, open powershell and type cf. If your installation was successful, the cf CLI help listing appears. You may need to restart the powershell window to see the cf cli help listing appear.\n  Save your creds and API URL to environment variables  Open a powershell window and type in the following commands. Remember to replace the values below with your student creds that were assigned to you.  $env:cf_api = \u0026quot;\u0026lt;PAS API URL\u0026gt;\u0026quot; $env:cf_username = \u0026quot;\u0026lt;Student User Name\u0026gt;\u0026quot; $env:cf_password = \u0026quot;\u0026lt;Student Password\u0026gt;\u0026quot;  Install the Steeltoe Visual Studio project templates  Download the VSIX templates installer.\n With Visual Studio closed, double click the downloaded file to install the templates.\n Once complete, open Visual Studio and choose File \u0026gt; New \u0026gt; Project \u0026gt; C# there should be additional Steeltoe and Cloud Foundry template listed.\n  Complete With the cf cli installed, your foundation credentials saved, and the Visual Studio templates loaded, you are ready to get started. Head on to the next lab.\n"
+},
+{
+	"uri": "/demos/create-microservice/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/demos/push-microservice/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": " Push the Microservice to Pivotal Application Services Platform Goal Using Visual Studio, compile the app to create an artifact. Then push the artifact to the Platform, for deployment.\nPrerequisites  Visual Studio (min 2015) PAS API Access PAS App Manager Access  Create the App Artifact  With the Steeltoe Microservice app opened in Visual Studio, right click on the project name and choose publish. (No need to build or restore, it will happen automatically)  The \u0026ldquo;Publish\u0026rdquo; window will open where you can choose the FolderProfile. Let the other settings remain as default.  Click the Publish button to create a new app artifact. Visual Studio will provide feedback about restoring packages and building the project. Something simiar to:\n 1\u0026gt; Steeltoe-CloudFoundry-Template1 -\u0026gt; C:\\tmp\\Steeltoe-CloudFoundry-Template1\\bin\\Steeltoe-CloudFoundry-Template1.dll 2\u0026gt;------ Publish started: Project: Steeltoe-CloudFoundry-Template1, Configuration: Release x64 ------ 2\u0026gt;Connecting to C:\\tmp\\Steeltoe-CloudFoundry-Template1\\bin\\Release\\Publish... 2\u0026gt;Deleting existing files... 2\u0026gt;Publishing folder /... 2\u0026gt;Publishing folder bin... 2\u0026gt;Web App was published successfully file:///C:/tmp/Steeltoe-CloudFoundry-Template1/bin/Release/Publish 2\u0026gt; ========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ========== ========== Publish: 1 succeeded, 0 failed, 0 skipped ==========  In the output window, note the location of the newly created artifact. Your location will be a little different, but in the above example it\u0026rsquo;s C:/tmp/Steeltoe-CloudFoundry-Template1/bin/Release/Publish. This folder has the compiled DLL, runtime dependencies, and the PAS manifest. That is your artifact!\n  Log in to PAS  Open a powershell window.\n Log in to PAS. You can copy and paste the following command into your powershell window to login. This command requires that you have setup the environment variables discussed earlier.\n   cf login -a $env:cf_api -u $env:cf_username -p $env:cf_password  If necessary, you can validate the existence of environment variables with the following commands: ```powershell  Get-ChildItem env:cf_api Get-ChildItem env:cf_username Get-ChildItem env:cf_password ```\n You may be prompted to choose an Org and Space. Choose the organization and space specified by your proctor. If you are not prompted, by default your Org and Space have already been set.\n To confirm you have targeted the correct Org and Space, type cf target. The output of this command will be similar to the following:\nPS C:\\\u0026gt; cf target api endpoint: https://api.system.pcf.acme.io api version: 2.120.0 user: wcoyote@acme.io org: my-micro-service-1 space: sandbox  The Org and Space are where your app will be pushed to. To target a specific organization and space use the following command:\ncf target -o \u0026lt;specify org\u0026gt; -s \u0026lt;specify space\u0026gt;   Push the Artifact With the app artifact created, the appropriate Org and Space targeted in PAS, you are ready to push!\n In the powershell window, cd into the directory holding the artifact. This is the directory you published into from Visual Studio. Example:\nPS C:\\\u0026gt; cd C:/tmp/Steeltoe-CloudFoundry-Template1/bin/Release/Publish  In the powershell window, type the command cf push. Your Artifact will be staged in a temporary place on PAS, containerized, deployed, and a route bound to it. Easy!\nrequested state: started instances: 1/1 usage: 1G x 1 instances urls: my-app-host-name.domain.com last uploaded: Mon Jan 7 01:01:10 UTC 2000 stack: windows2016 buildpack: binary state since cpu memory disk details #0 running 2000-01-01 01:01:01 PM 231.0% 498.1M of 1G 161.9M of 1G (10)  Validate that the microservice is running. The microservice URL is the URL output in the previous step plus the suffix of /api/values/5. For example, the above output had the URL as my-app-host-name.domain.com and the associated microservice URL would be https://my-app-host-name.domain.com/api/values/5. Open this URL in your browser to see the microservice in action.\n  Complete Congratulations! You\u0026rsquo;ve pushed your first app!\n"
+},
+{
+	"uri": "/demos/explore-appmanager/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": " Explore Applications Manager Goal Now that you\u0026rsquo;ve pushed an app, log in to App Manager and explore the many options available.\nPrerequisites  Internet Access Web Browser (Chrome, Firefox, Edge, Safari)(Not Internet Explorer)  Log in to App Manager  Open PAS Apps Manager web site provided in the Introduction slide.  Log in with the student account creds assigned workshop proctor..\n Once logged in, notice your Org and Space is automatically loaded.   Locate the home page of your app  Click your space name (on the left) to get a list of apps deployed in that space. You should see your app previously pushed.\n Click the name of your app to see all the details and options.\n This is the home page of your app. From here you can start/stop the app, manually scale the app instances, manage the services bound to the app, manage routes attached to the app, view the app\u0026rsquo;s logs, and (with Steeltoe) manage logging levels and see in depth debugging.\n  Explore the Marketplace  Click the \u0026ldquo;Marketplace\u0026rdquo; link (on the left).\n This is a listing of all the services available to bind with your app. [When applicable] a service has plans associated with them. You choose a plan, name the instance, and bind.\n You don\u0026rsquo;t have to bind a service directly to an app. Alternately, you can bind a service to a Space. This makes the service available for binding to all apps within, but lets the service settings be managed in one place.\n  "
+},
+{
+	"uri": "/demos/attach-autoscaler/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": " Setup Auto-scaling Goal From the home page of your app, in App Manager, attach an autoscaler service to it with scaling rules.\nPrerequisites  Pushed app Internet Access Web Browser (Chrome, Firefox, Edge, Safari)(Not Internet Explorer)  Find the autoscaler service and bind to a space  Open the \u0026ldquo;Markeplace\u0026rdquo; of services within App Manager.\n Locate the \u0026ldquo;App Autoscaler\u0026rdquo; service and click on it. This will show you the \u0026ldquo;plans\u0026rdquo; associated with that service. In this case there is only one plan called \u0026ldquo;Standard\u0026rdquo;.\n Click the \u0026ldquo;Select This Plan\u0026rdquo; button.\n For configuration, provide the following:\n Instance Name: my-autoscaler Add To Space: \u0026lt;choose your student space name\u0026gt; Bind To App: [do not bind]  Once completed, click the \u0026ldquo;Create\u0026rdquo; button to create the service instance. You should see a green confirmation message at the top.  The web page will automatically refresh to the services listing for your Space.\n  Bind your app to the autoscaler  From the home page of your app, choose the \u0026ldquo;Service\u0026rdquo; tab.\n Click the \u0026ldquo;Bind Service\u0026rdquo; button to bring up a list of available services for binding.\n In the \u0026ldquo;Service to Bind\u0026rdquo; drop down, choose your new my-autoscaler service.\n Click \u0026ldquo;Bind\u0026rdquo; buton to complete the binding and close the window.\n Now your newly bound service is listed but it has not been activated.\n Click the \u0026ldquo;Overview\u0026rdquo; tab and now you should see an \u0026ldquo;Autoscaling\u0026rdquo; slider in the \u0026ldquo;web\u0026rdquo; panel.   Activate the autoscaler and set a scaling rule  Activate the autoscaler service by clicking the slider to the \u0026ldquo;on\u0026rdquo; position. Notice the \u0026ldquo;Manage Autoscaling\u0026rdquo; link is now active.\n Click the \u0026ldquo;Manage Autoscaling\u0026rdquo; link to bring up the manage window. The Window has the following areas:\n Instance limits minimum: the minimum number of instances that your app should be running. (In production this number should match the number of Availability Zones) Instance limits maximum: the maximum number of instance that you app could possibly scale to. Scaling rules: how PAS descides to scale your app up and down. Scheduled limits: optionaly you can schedule dates and times of a certain instance count Event history: a log of scaling events for your app.  The minimum should be set to 2 and the maximum should set to 3. Click the \u0026ldquo;Apply Changes\u0026rdquo; button if necessary. Close the Window.\n If it hasn\u0026rsquo;t happened already, in a few moments you will see your app instance increase from 1 to 2! Now your app is on the road to being highly available and resilient. Congrats!\n  If you turned the autoscaling off or changed the minimum instances to be 1, PAS will take care of every else. Just sit back and watch the show.\n"
+},
+{
+	"uri": "/demos/add-route/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": " Add a New Route Goal From the home page of your app, in App Manager, add a second route to the app.\nPrerequisites  Pushed app Internet Access Web Browser (Chrome, Firefox, Edge, Safari)(Not Internet Explorer)  Add a new a route to your app  From the home page of your app, choose the \u0026ldquo;Route\u0026rdquo; tab. Notice there is one route attached to your app. It was created from the Host value in the app\u0026rsquo;s manifest.\n Click the \u0026ldquo;Map A Route\u0026rdquo; button, to bring up the manage routes window.\n The window gives you options for creating a new route or attaching an existing route to the app. Choose \u0026ldquo;Map a New Route\u0026rdquo; and provide a Hostname value. Keep it simple, with something unique that no one else will use (like your name).\n Click the \u0026ldquo;Map\u0026rdquo; button to create the route and automatically attach to your app. The window will close and you will see two routes listed, your existing and the one just created.\n  Now your app has 2 different URL\u0026rsquo;s associated with it. Easy! You can click either route name to open the app in a different browser window.\nIf you had chosen to \u0026ldquo;Map an Existing Route\u0026rdquo; to your app, you would have the option to choose an existing route in the same Space. Route sharing is limited to an app\u0026rsquo;s Space.\nWith more than one app attached to the same route, PAS will load balance requests based on the number of instances. For example, if app A and B are using the same route, app A is running 1 instance and app B is running 3 instances, then ~25% of the request traffic will go to app A and ~75% of the traffic will go to app B. This is a very easy way to transfer live traffic from one app version to another, as a zero downtime (blue/green) deployment!\n"
+},
+{
+	"uri": "/demos/next-steps/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": " Next Steps Congratulations you\u0026rsquo;ve completed the PASW Workshop!\nNow that you are a cf push expert, it\u0026rsquo;s time to get in to some more advanced topics. Continue to learn and experience more about cloud native best practices, with Pivotal.\n  Pivotal Education Services Self Guided Learning Pivotal Workshops     The Platform Acceleration Lab (PAL) is an immersive, best practices set of courses that enables developers and architects to develop new applications, move applications (replatforming), and modernize existing applications on Pivotal Cloud Foundry. The PAL is designed to enable through \u0026ldquo;doing it\u0026rdquo; rather than \u0026ldquo;talking about it.\u0026rdquo; In the 4 day .NET Cloud Native Developer course, students will gain a deep understanding of all Steeltoe packages. They will be hands-on coding an application, adding each package step by step. Through a combination of a free account with Pivotal Web Services and the many Steeltoe samples available, you can continue learning cloud native best practices and about all the framework has to offer. Speak with the Workshop Proctor to bring other cloud native inspired workshops to your organization. Topics like the Steeltoe Framework, all about BOSH, and microservices security are just a few of the suggested options.   \n"
+},
+{
+	"uri": "/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/",
+	"title": "Pivotal Workshop",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]

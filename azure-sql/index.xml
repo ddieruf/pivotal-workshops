@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pivotal Workshop</title>
+    <link>/</link>
+    <description>Recent content on Pivotal Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>/demos/intro-creds/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/demos/intro-creds/</guid>
+      <description> Introduction &amp;amp; Credentials In today&amp;rsquo;s workshop you will get hands on experience creating a templated app in Visual Studio, reviewing the cloud foundry manifest, pushing the app to Pivotal Application Services, attaching an auto-scaler to the app, and trying out different routes.
+Your workshop proctor should have provided URL&amp;rsquo;s and credentials prior to beginning the labs. Please have this information handy for the next lab.
+You will need:  API URL of your workshop Pivotal Cloud Foundry (PCF) foundation URL of App Manager User name and password to login to the foundation Org and Space associated with the user account  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/demos/setup-environment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/demos/setup-environment/</guid>
+      <description>Setup Desktop Environment Goal The labs in this workshop make use of Powershell, the Cloud Foundry cli (cf cli), and local environment variables. The following steps will confirm you have the correct configuration.
+Prerequisites  Visual Studio (min 2015) Web Browser (Chrome, Firefox, Edge, Safari)(Not Internet Explorer) Powershell Internet connection  Download and Validate cf cli  Download the cli.
+ Unpack the zip file.
+ Double click cf-installer.exe to begin installation.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/demos/bind-sb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/demos/bind-sb/</guid>
+      <description>Bind the Microsoft Azure Service Broker Goal Locate the Azure SQL in the Marketplace and make an instance of it available for binding in your space.
+Prerequisites  Internet Access Web Browser (Chrome, Firefox, Edge, Safari)(Not Internet Explorer)  Bind the Azure SQL service to your space  Open the App Manager website in a browser.
+ Navigate to the &amp;ldquo;Marketplace&amp;rdquo; in the left navigation.
+ Local the &amp;ldquo;Azure SQL Database Service&amp;rdquo; and click.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/demos/dbcontext/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/demos/dbcontext/</guid>
+      <description>Consume the Microsoft Azure Service Broker in your application Goal With the Azure SQL service available for binding, create the necessary DBContext and list the newly created tables&amp;rsquo; content.
+Prerequisites  Visual Studio (min 2015) Internet Access  Bind the SQL service to your application  Back in Visual Studio, open the manifest.yml file by double clicking and add the following to the services section (create that section if it&amp;rsquo;s not there).</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/demos/push-microservice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/demos/push-microservice/</guid>
+      <description>Push the Microservice to Pivotal Application Services Platform Goal Using Visual Studio, compile the app to create an artifact. Then push the artifact to the Platform, for deployment.
+Prerequisites  Visual Studio (min 2015) PAS API Access PAS App Manager Access  Create the App Artifact  With the Steeltoe Microservice app opened in Visual Studio, right click on the project name and choose publish. (No need to build or restore, it will happen automatically)  The &amp;ldquo;Publish&amp;rdquo; window will open where you can choose the FolderProfile.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/demos/next-steps/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/demos/next-steps/</guid>
+      <description>Continuing Your .NET Cloud Native Journey Congratulations you&amp;rsquo;ve completed Steeltoe Azure Storage Workshop!
+Continue to learn and experience more about cloud native best practices, with Pivotal.
+  Pivotal Education Services Self Guided Learning Pivotal Workshops     The Platform Acceleration Lab (PAL) is an immersive, best practices set of courses that enables developers and architects to develop new applications, move applications (replatforming), and modernize existing applications on Pivotal Cloud Foundry.</description>
+    </item>
+    
+  </channel>
+</rss>

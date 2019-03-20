@@ -1,0 +1,52 @@
+{
+    "workshopSubject":"PACE",
+    "workshopHomepage":"",
+    "modules": [
+    {
+        "type": "concepts",
+        "content": [
+            {
+            "name":"deck",
+            "filename":"dotnet-funnyquotes-workshop/slides"
+            }
+        ]
+    },
+    {
+        "type": "demos",
+        "content": [
+			{
+			"name":"1. Overview",
+			"filename":"dotnet-funnyquotes-workshop/1_overview"
+			},
+            {
+            "name":"2. Basic Push",
+            "filename":"dotnet-funnyquotes-workshop/2_basic-push"
+            },
+            {
+            "name":"3. Database",
+            "filename":"dotnet-funnyquotes-workshop/3_database"
+            },
+            {
+            "name":"4. Service Discovery",
+            "filename":"dotnet-funnyquotes-workshop/4_service_discovery"
+            },
+            {
+            "name":"5. Config Server",
+            "filename":"dotnet-funnyquotes-workshop/5_config_server"
+            },
+            {
+            "name":"6. Hystrix",
+            "filename":"dotnet-funnyquotes-workshop/6_hystrix"
+            },
+            {
+            "name":"7. Actuators, Tracing & Metrics",
+            "filename":"dotnet-funnyquotes-workshop/7_actuators_tracing_and_metrics"
+            },
+            {
+            "name":"8. Security",
+            "filename":"dotnet-funnyquotes-workshop/8_security"
+            }
+        ]
+    }
+  ]
+}

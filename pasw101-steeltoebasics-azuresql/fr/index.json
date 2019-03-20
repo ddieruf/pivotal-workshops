@@ -1,0 +1,169 @@
+[
+{
+	"uri": "/fr/workshop/",
+	"title": "PASW 101 and Steeltoe Cloud Native .NET Microservices Workshop  Workshop",
+	"tags": [],
+	"description": "",
+	"content": " Pivotal Platform Architecture helps companies learn how to solve IT and engineering challenges. We encourage you to explore our workshops. Build the future with Pivotal!  PASW 101 and Steeltoe Cloud Native .NET Microservices Workshop Workshop\n  Workshop Concepts Advanced Features of Steeltoe Workshop Démos Introduction \u0026amp; Credentials Setup Desktop Environment Create .NET Core Microservice for Windows Explore Applications Manager Setup Auto-Scaling Add a New Route Continue Workshop Environment Variables User Provided Services with Steeltoe Include Steeltoe Actuators and Create a Custom Health Check App Manager with Management Actuators Steeltoe Dynamic Logging Continue Workshop Bind the Microsoft Azure Service Broker Consume the Microsoft Azure Service Broker in your application Push Microservice to PASW Continuing Your .NET Cloud Native Journey  "
+},
+{
+	"uri": "/fr/concepts/",
+	"title": "Concepts",
+	"tags": [],
+	"description": "",
+	"content": " Concepts Apprenez les bases, comprenez les architectures et complétez les concepts de base de l\u0026rsquo;atelier.\n"
+},
+{
+	"uri": "/fr/demos/",
+	"title": "Démos",
+	"tags": [],
+	"description": "",
+	"content": " Démos Construisez des architectures et testez les concepts de base de l\u0026rsquo;atelier.\n"
+},
+{
+	"uri": "/fr/concepts/advanced-steeltoe/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/fr/demos/intro-creds/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/fr/demos/setup-environment/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/fr/demos/create-microservice-win/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/fr/demos/explore-appmanager/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/fr/demos/attach-autoscaler/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/fr/demos/add-route/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/fr/demos/pasw-to-steeltoe-basics/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/fr/demos/env-vars-win/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/fr/demos/cups/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/fr/demos/actuators/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/fr/demos/using-actuators/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/fr/demos/logging/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/fr/demos/steeltoe-basics-to-steeltoe-aszure-storage/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/fr/demos/bind-sb/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/fr/demos/dbcontext/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/fr/demos/push-microservice/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/fr/demos/next-steps/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/fr/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/fr/",
+	"title": "Pivotal Workshop",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/fr/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]

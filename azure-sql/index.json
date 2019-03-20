@@ -1,0 +1,85 @@
+[
+{
+	"uri": "/workshop/",
+	"title": "Azure Storage with Pivotal Application Services for Windows and Steeltoe Workshop",
+	"tags": [],
+	"description": "",
+	"content": " Pivotal Platform Architecture helps companies learn how to solve IT and engineering challenges. We encourage you to explore our workshops. Build the future with Pivotal!  Azure Storage with Pivotal Application Services for Windows and Steeltoe Workshop\n  Workshop Concepts Workshop Demos Introduction \u0026amp; Credentials Setup Environment Bind the Microsoft Azure Service Broker Consume the Microsoft Azure Service Broker in your application Push Microservice to PASW Continuing Your .NET Cloud Native Journey  "
+},
+{
+	"uri": "/concepts/",
+	"title": "Concepts",
+	"tags": [],
+	"description": "",
+	"content": " Concepts Learn the basics, understand architectures, and fill-in the core-concepts behind the workshop.\n"
+},
+{
+	"uri": "/demos/",
+	"title": "Demos",
+	"tags": [],
+	"description": "",
+	"content": " Demos Build architectures, and test the core-concepts behind the workshop.\n"
+},
+{
+	"uri": "/demos/intro-creds/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": " Introduction \u0026amp; Credentials In today\u0026rsquo;s workshop you will get hands on experience creating a templated app in Visual Studio, reviewing the cloud foundry manifest, pushing the app to Pivotal Application Services, attaching an auto-scaler to the app, and trying out different routes.\nYour workshop proctor should have provided URL\u0026rsquo;s and credentials prior to beginning the labs. Please have this information handy for the next lab.\nYou will need:  API URL of your workshop Pivotal Cloud Foundry (PCF) foundation URL of App Manager User name and password to login to the foundation Org and Space associated with the user account  "
+},
+{
+	"uri": "/demos/setup-environment/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": " Setup Desktop Environment Goal The labs in this workshop make use of Powershell, the Cloud Foundry cli (cf cli), and local environment variables. The following steps will confirm you have the correct configuration.\nPrerequisites  Visual Studio (min 2015) Web Browser (Chrome, Firefox, Edge, Safari)(Not Internet Explorer) Powershell Internet connection  Download and Validate cf cli  Download the cli.\n Unpack the zip file.\n Double click cf-installer.exe to begin installation.\n When prompted, click Install, then Finish\n To verify your installation, open powershell and type cf --version. If your installation was successful, the cf cli version is returned. You may need to restart your powershell window for the cli to work properly.\n  If you don\u0026rsquo;t have permission to install the cli, download the cli executable  Download the cli exe.\n Unpack the zip file.\n Copy the cf.exe executable to c:\\Windows\\System32 folder. (this is to add cf to your path env variable)\n To verify your installation, open powershell and type cf. If your installation was successful, the cf CLI help listing appears. You may need to restart the powershell window to see the cf cli help listing appear.\n  Save your creds and API URL to environment variables  Open a powershell window and type in the following commands. Remember to replace the values below with your student creds that were assigned to you.  $env:cf_api = \u0026quot;\u0026lt;PAS API URL\u0026gt;\u0026quot; $env:cf_username = \u0026quot;\u0026lt;Student User Name\u0026gt;\u0026quot; $env:cf_password = \u0026quot;\u0026lt;Student Password\u0026gt;\u0026quot;  Install the Steeltoe Visual Studio project templates  Download the VSIX templates installer.\n With Visual Studio closed, double click the downloaded file to install the templates.\n Once complete, open Visual Studio and choose File \u0026gt; New \u0026gt; Project \u0026gt; C# there should be additional Steeltoe and Cloud Foundry template listed.\n  Complete With the cf cli installed, your foundation credentials saved, and the Visual Studio templates loaded, you are ready to get started. Head on to the next lab.\n"
+},
+{
+	"uri": "/demos/bind-sb/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": " Bind the Microsoft Azure Service Broker Goal Locate the Azure SQL in the Marketplace and make an instance of it available for binding in your space.\nPrerequisites  Internet Access Web Browser (Chrome, Firefox, Edge, Safari)(Not Internet Explorer)  Bind the Azure SQL service to your space  Open the App Manager website in a browser.\n Navigate to the \u0026ldquo;Marketplace\u0026rdquo; in the left navigation.\n Local the \u0026ldquo;Azure SQL Database Service\u0026rdquo; and click.  Choose the \u0026ldquo;Basic\u0026rdquo; plan and click the \u0026ldquo;Select This Plan\u0026rdquo; button.\n Provide the following for Instance Configuration Instance Name: my-azure-db Add To Space: Bind To App: [do not bind]\n Click the \u0026ldquo;Create\u0026rdquo; button to create the instance and make it available for binding.\n Navigate the to the home page of your space and click the \u0026ldquo;Services\u0026rdquo; tab. You should see the Azure SQL Database Service listed. Confirm everything as successful by noting the right column message \u0026ldquo;create succeeded\u0026rdquo;.  There is no further configuration required! You are ready to consume the database in an application.\n  Complete You have taken a service offered in the Marketplace and associated an instance of it, with your space. Now apps within the space can bind to the service and this consume it. Let\u0026rsquo;s say you had a \u0026ldquo;Dev\u0026rdquo; space and a \u0026ldquo;QA\u0026rdquo; space. If you bound the Azure SQL Database Service to each space and named each instance the same, your app could move to either space with no config changes! All it depends on is the serivce to be available for binding, no evironment or web.config dependencies.\nBy the way using the cf cli, we could have accomplished everything above in powershell with:\ncf create-service azure-sqldb basic my-azure-db  "
+},
+{
+	"uri": "/demos/dbcontext/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": " Consume the Microsoft Azure Service Broker in your application Goal With the Azure SQL service available for binding, create the necessary DBContext and list the newly created tables\u0026rsquo; content.\nPrerequisites  Visual Studio (min 2015) Internet Access  Bind the SQL service to your application  Back in Visual Studio, open the manifest.yml file by double clicking and add the following to the services section (create that section if it\u0026rsquo;s not there). ```yml\n\u0026hellip;\nservices:\n my-azure-db ```   Add SQL DBContext  Open Program.cs and confirm the Cloud Foundry provider has been added. This provider gives your app the ability to locate the VCAP environment variables that are created by Cloud Foundry, and parse them.\nWebHost.CreateDefaultBuilder(args) ... .UseCloudFoundryHosting() .AddCloudFoundry() .UseStartup\u0026lt;Startup\u0026gt;() ...  You may need to add the dependency\nusing Steeltoe.Extensions.Configuration.CloudFoundry;  Create a new class file named TestContext.cs and replace the default class with the following code.\nusing Microsoft.EntityFrameworkCore; using System.ComponentModel.DataAnnotations; using System.ComponentModel.DataAnnotations.Schema;  ```cs public class TestContext : DbContext { public TestContext(DbContextOptions options) : base(options){ }\npublic DbSet TestData { get; set; } }\n  public class TestData { [Key] [DatabaseGenerated(DatabaseGeneratedOption.Identity)] public int Id { get; set; }\npublic string Data { get; set; }  }\n 1. Create a new class file named `SampleData.cs` and replace the default class with the following code. This will initialize the a database table using the TestData schema and fill it with 2 rows of data, if none exists. ```cs using Microsoft.EntityFrameworkCore; using Microsoft.Extensions.DependencyInjection; using System; using System.Linq;  public class SampleData { internal static void InitializeMyContexts(IServiceProvider serviceProvider) { if (serviceProvider == null) { throw new ArgumentNullException(\u0026quot;serviceProvider\u0026quot;); } using (var serviceScope = serviceProvider.GetRequiredService\u0026lt;IServiceScopeFactory\u0026gt;().CreateScope()) { var db = serviceScope.ServiceProvider.GetService\u0026lt;TestContext\u0026gt;(); db.Database.EnsureCreated(); } InitializeContext(serviceProvider); } private static void InitializeContext(IServiceProvider serviceProvider) { using (var serviceScope = serviceProvider.GetRequiredService\u0026lt;IServiceScopeFactory\u0026gt;().CreateScope()) { var db = serviceScope.ServiceProvider.GetService\u0026lt;TestContext\u0026gt;(); if (db.TestData.Any()) { return; } AddData\u0026lt;TestData\u0026gt;(db, new TestData() { Data = \u0026quot;Test Data 1 - TestContext \u0026quot; }); AddData\u0026lt;TestData\u0026gt;(db, new TestData() { Data = \u0026quot;Test Data 2 - TestContext \u0026quot; }); db.SaveChanges(); } } private static void AddData\u0026lt;TData\u0026gt;(DbContext db, object item) where TData: class { db.Entry(item).State = EntityState.Added; } }   Locate the Controllers\\ValuesController.cs file and double click it, to open. Find the [HttpGet] endpoint and Replace the method logic with the following.\n[HttpGet] public ActionResult\u0026lt;IEnumerable\u0026lt;TestData\u0026gt;\u0026gt; Get([FromServices] TestContext context) { var connection = context.Database.GetDbConnection(); return context.TestData.ToList(); }  You may need to add the dependency\nusing System.Collections.Generic;  Open Startup.cs and locate the ConfigureServices method. Add our newly created database context.\npublic void ConfigureServices(IServiceCollection services) { ... services.AddDbContext\u0026lt;TestContext\u0026gt;(options =\u0026gt; options.UseSqlServer(Configuration)); services.AddMvc(); }  You may need to add the dependency\nusing Steeltoe.CloudFoundry.Connector.SqlServer.EFCore;   Complete The app is ready for prime time. You have retrieved the serivce information (with connection info) from the provided environment variables, create a database context, initialized the data store, and made querying available via RESTFul endpoint.\n"
+},
+{
+	"uri": "/demos/push-microservice/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": " Push the Microservice to Pivotal Application Services Platform Goal Using Visual Studio, compile the app to create an artifact. Then push the artifact to the Platform, for deployment.\nPrerequisites  Visual Studio (min 2015) PAS API Access PAS App Manager Access  Create the App Artifact  With the Steeltoe Microservice app opened in Visual Studio, right click on the project name and choose publish. (No need to build or restore, it will happen automatically)  The \u0026ldquo;Publish\u0026rdquo; window will open where you can choose the FolderProfile. Let the other settings remain as default.  Click the Publish button to create a new app artifact. Visual Studio will provide feedback about restoring packages and building the project. Something simiar to:\n 1\u0026gt; Steeltoe-CloudFoundry-Template1 -\u0026gt; C:\\tmp\\Steeltoe-CloudFoundry-Template1\\bin\\Steeltoe-CloudFoundry-Template1.dll 2\u0026gt;------ Publish started: Project: Steeltoe-CloudFoundry-Template1, Configuration: Release x64 ------ 2\u0026gt;Connecting to C:\\tmp\\Steeltoe-CloudFoundry-Template1\\bin\\Release\\Publish... 2\u0026gt;Deleting existing files... 2\u0026gt;Publishing folder /... 2\u0026gt;Publishing folder bin... 2\u0026gt;Web App was published successfully file:///C:/tmp/Steeltoe-CloudFoundry-Template1/bin/Release/Publish 2\u0026gt; ========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ========== ========== Publish: 1 succeeded, 0 failed, 0 skipped ==========  In the output window, note the location of the newly created artifact. Your location will be a little different, but in the above example it\u0026rsquo;s C:/tmp/Steeltoe-CloudFoundry-Template1/bin/Release/Publish. This folder has the compiled DLL, runtime dependencies, and the PAS manifest. That is your artifact!\n  Log in to PAS  Open a powershell window.\n Log in to PAS. You can copy and paste the following command into your powershell window to login. This command requires that you have setup the environment variables discussed earlier.\n   cf login -a $env:cf_api -u $env:cf_username -p $env:cf_password  If necessary, you can validate the existence of environment variables with the following commands: ```powershell  Get-ChildItem env:cf_api Get-ChildItem env:cf_username Get-ChildItem env:cf_password ```\n You may be prompted to choose an Org and Space. Choose the organization and space specified by your proctor. If you are not prompted, by default your Org and Space have already been set.\n To confirm you have targeted the correct Org and Space, type cf target. The output of this command will be similar to the following:\nPS C:\\\u0026gt; cf target api endpoint: https://api.system.pcf.acme.io api version: 2.120.0 user: wcoyote@acme.io org: my-micro-service-1 space: sandbox  The Org and Space are where your app will be pushed to. To target a specific organization and space use the following command:\ncf target -o \u0026lt;specify org\u0026gt; -s \u0026lt;specify space\u0026gt;   Push the Artifact With the app artifact created, the appropriate Org and Space targeted in PAS, you are ready to push!\n In the powershell window, cd into the directory holding the artifact. This is the directory you published into from Visual Studio. Example:\nPS C:\\\u0026gt; cd C:/tmp/Steeltoe-CloudFoundry-Template1/bin/Release/Publish  In the powershell window, type the command cf push. Your Artifact will be staged in a temporary place on PAS, containerized, deployed, and a route bound to it. Easy!\nrequested state: started instances: 1/1 usage: 1G x 1 instances urls: my-app-host-name.domain.com last uploaded: Mon Jan 7 01:01:10 UTC 2000 stack: windows2016 buildpack: binary state since cpu memory disk details #0 running 2000-01-01 01:01:01 PM 231.0% 498.1M of 1G 161.9M of 1G (10)  Validate that the microservice is running. The microservice URL is the URL output in the previous step plus the suffix of /api/values/5. For example, the above output had the URL as my-app-host-name.domain.com and the associated microservice URL would be https://my-app-host-name.domain.com/api/values/5. Open this URL in your browser to see the microservice in action.\n  Complete Congratulations! You\u0026rsquo;ve pushed your first app!\n"
+},
+{
+	"uri": "/demos/next-steps/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": " Continuing Your .NET Cloud Native Journey Congratulations you\u0026rsquo;ve completed Steeltoe Azure Storage Workshop!\nContinue to learn and experience more about cloud native best practices, with Pivotal.\n  Pivotal Education Services Self Guided Learning Pivotal Workshops     The Platform Acceleration Lab (PAL) is an immersive, best practices set of courses that enables developers and architects to develop new applications, move applications (replatforming), and modernize existing applications on Pivotal Cloud Foundry. The PAL is designed to enable through \u0026ldquo;doing it\u0026rdquo; rather than \u0026ldquo;talking about it.\u0026rdquo; In the 4 day .NET Cloud Native Developer course, students will gain a deep understanding of all Steeltoe packages. They will be hands-on coding an application, adding each package step by step. Through a combination of a free account with Pivotal Web Services and the many Steeltoe samples available, you can continue learning cloud native best practices and about all the framework has to offer. Speak with the Workshop Proctor to bring other cloud native inspired workshops to your organization. Topics like the Steeltoe Framework, all about BOSH, and microservices security are just a few of the suggested options.   \n"
+},
+{
+	"uri": "/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/",
+	"title": "Pivotal Workshop",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]

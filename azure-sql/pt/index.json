@@ -1,0 +1,85 @@
+[
+{
+	"uri": "/pt/workshop/",
+	"title": "Azure Storage with Pivotal Application Services for Windows and Steeltoe Workshop",
+	"tags": [],
+	"description": "",
+	"content": " Pivotal Platform Architecture helps companies learn how to solve IT and engineering challenges. We encourage you to explore our workshops. Build the future with Pivotal!  Azure Storage with Pivotal Application Services for Windows and Steeltoe Workshop\n  Workshop Conceitos Workshop Demos Introduction \u0026amp; Credentials Setup Environment Bind the Microsoft Azure Service Broker Consume the Microsoft Azure Service Broker in your application Push Microservice to PASW Continuing Your .NET Cloud Native Journey  "
+},
+{
+	"uri": "/pt/concepts/",
+	"title": "Conceitos",
+	"tags": [],
+	"description": "",
+	"content": " Conceitos Aprenda o básico, entenda arquiteturas e preencha os principais conceitos por trás do workshop.\n"
+},
+{
+	"uri": "/pt/demos/",
+	"title": "Demos",
+	"tags": [],
+	"description": "",
+	"content": " Demos Construa arquiteturas e teste os principais conceitos por trás do workshop.\n"
+},
+{
+	"uri": "/pt/demos/intro-creds/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/pt/demos/setup-environment/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/pt/demos/bind-sb/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/pt/demos/dbcontext/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/pt/demos/push-microservice/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/pt/demos/next-steps/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/pt/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/pt/",
+	"title": "Pivotal Workshop",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/pt/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]

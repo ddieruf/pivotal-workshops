@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Demos on Pivotal Workshop</title>
+    <link>/demos/</link>
+    <description>Recent content in Demos on Pivotal Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="/demos/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>/demos/intro-creds/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/demos/intro-creds/</guid>
+      <description> Introduction &amp;amp; Credentials In today&amp;rsquo;s workshop you will get hands on experience creating a templated app in Visual Studio, reviewing the cloud foundry manifest, pushing the app to Pivotal Application Services, attaching an auto-scaler to the app, and trying out different routes.
+Your workshop proctor should have provided URL&amp;rsquo;s and credentials prior to beginning the labs. Please have this information handy for the next lab.
+You will need:  API URL of your workshop Pivotal Cloud Foundry (PCF) foundation URL of App Manager User name and password to login to the foundation Org and Space associated with the user account  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/demos/setup-environment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/demos/setup-environment/</guid>
+      <description>Setup Desktop Environment Goal The labs in this workshop make use of Powershell, the Cloud Foundry cli (cf cli), and local environment variables. The following steps will confirm you have the correct configuration.
+Prerequisites  Visual Studio (min 2015) Web Browser (Chrome, Firefox, Edge, Safari)(Not Internet Explorer) Powershell Internet connection  Download and Validate cf cli  Download the cli.
+ Unpack the zip file.
+ Double click cf-installer.exe to begin installation.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/demos/create-microservice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/demos/create-microservice/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/demos/push-microservice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/demos/push-microservice/</guid>
+      <description>Push the Microservice to Pivotal Application Services Platform Goal Using Visual Studio, compile the app to create an artifact. Then push the artifact to the Platform, for deployment.
+Prerequisites  Visual Studio (min 2015) PAS API Access PAS App Manager Access  Create the App Artifact  With the Steeltoe Microservice app opened in Visual Studio, right click on the project name and choose publish. (No need to build or restore, it will happen automatically)  The &amp;ldquo;Publish&amp;rdquo; window will open where you can choose the FolderProfile.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/demos/explore-appmanager/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/demos/explore-appmanager/</guid>
+      <description>Explore Applications Manager Goal Now that you&amp;rsquo;ve pushed an app, log in to App Manager and explore the many options available.
+Prerequisites  Internet Access Web Browser (Chrome, Firefox, Edge, Safari)(Not Internet Explorer)  Log in to App Manager  Open PAS Apps Manager web site provided in the Introduction slide.  Log in with the student account creds assigned workshop proctor..
+ Once logged in, notice your Org and Space is automatically loaded.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/demos/attach-autoscaler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/demos/attach-autoscaler/</guid>
+      <description>Setup Auto-scaling Goal From the home page of your app, in App Manager, attach an autoscaler service to it with scaling rules.
+Prerequisites  Pushed app Internet Access Web Browser (Chrome, Firefox, Edge, Safari)(Not Internet Explorer)  Find the autoscaler service and bind to a space  Open the &amp;ldquo;Markeplace&amp;rdquo; of services within App Manager.
+ Locate the &amp;ldquo;App Autoscaler&amp;rdquo; service and click on it. This will show you the &amp;ldquo;plans&amp;rdquo; associated with that service.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/demos/add-route/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/demos/add-route/</guid>
+      <description>Add a New Route Goal From the home page of your app, in App Manager, add a second route to the app.
+Prerequisites  Pushed app Internet Access Web Browser (Chrome, Firefox, Edge, Safari)(Not Internet Explorer)  Add a new a route to your app  From the home page of your app, choose the &amp;ldquo;Route&amp;rdquo; tab. Notice there is one route attached to your app. It was created from the Host value in the app&amp;rsquo;s manifest.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/demos/next-steps/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/demos/next-steps/</guid>
+      <description>Next Steps Congratulations you&amp;rsquo;ve completed the PASW Workshop!
+Now that you are a cf push expert, it&amp;rsquo;s time to get in to some more advanced topics. Continue to learn and experience more about cloud native best practices, with Pivotal.
+  Pivotal Education Services Self Guided Learning Pivotal Workshops     The Platform Acceleration Lab (PAL) is an immersive, best practices set of courses that enables developers and architects to develop new applications, move applications (replatforming), and modernize existing applications on Pivotal Cloud Foundry.</description>
+    </item>
+    
+  </channel>
+</rss>

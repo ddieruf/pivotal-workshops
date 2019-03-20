@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Demos on Pivotal Workshop</title>
+    <link>/demos/</link>
+    <description>Recent content in Demos on Pivotal Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="/demos/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>/demos/1_overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/demos/1_overview/</guid>
+      <description>PCF .NET Demo This solution demonstrates the use of multiple microservices built using multiple .NET technologies running on PCF. The primary goal is to show that PCF can handle legacy code that existed as early as .NET version 1.0, with common stacks introduced as part of .NET framework up to the newest .NET core application. The solution demonstrates a natural progression / evolution that a customer would take towards making their apps cloud native.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/demos/2_basic-push/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/demos/2_basic-push/</guid>
+      <description>Pushing the apps Goals  Show how pushing 4.x apps and Core apps works the same. Target both Linux and Windows stacks.  Steps  Push the backend - FunnyQuotesServicesOwin.
+ &amp;gt; cd FunnyQuotesServicesOwin &amp;gt; cf push FunnyQuotesServicesOwin   2.Push the .NET Core front end - FunnyQuotesUICore.
+``` &amp;gt; cd FunnyQuotesUICore &amp;gt; cf push FunnyQuotesUICore ```   Explain output while app is being pushed. Access the app URL, get a few funny quotes, get some laughs.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/demos/3_database/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/demos/3_database/</guid>
+      <description>Databases Run App locally and show db initialization via EF code first  Run MySQL locally via docker
+&amp;gt; docker pull mysql &amp;gt; docker run --name mysql -p 3306:3306/tcp -d -e MYSQL_ALLOW_EMPTY_PASSWORD=yes mysql:5.7  Connect to MySQL via CLI
+&amp;gt; docker run -it --link mysql:mysql --rm mysql sh -c &amp;quot;exec mysql -h$MYSQL_PORT_3306_TCP_ADDR -P$MYSQL_PORT_3306_TCP_PORT -uroot -p$MYSQL_ENV_MYSQL_ROOT_PASSWORD&amp;quot;  Create empty database
+&amp;gt; CREATE DATABASE funnyquotes;  Launch FunnyQuotesServiceOwin locally, either from Visual Studio or Rider (must be on Windows).</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/demos/4_service_discovery/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/demos/4_service_discovery/</guid>
+      <description>Service Discovery Service discovery locally  Pull down docker image.
+ &amp;gt; docker pull mayan31370/spring-eureka  Run it.
+ &amp;gt; docker run -d --name eureka -p 8761:8080/tcp mayan31370/spring-eureka  Launch FunnyQuotesLegacyService or FunnyQuotesServicesOwin from Visual Studio.
+ Check the dashboard http://localhost:8761/ to confirm registration.
+ For FunnyQuotesLegacyService, append /FunnyQuoteServiceLegacy.asmx/GetCookie to the url to observe the result.
+ For FunnyQuotesServicesOwin, append /funnyquotes/random to the url to observe the result.
+  Service discovery on PCF  Provision the p-service-registry service, the standard plan, and name it &amp;ldquo;eureka&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/demos/5_config_server/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/demos/5_config_server/</guid>
+      <description>Config Server We want to get FunnyQuotes client to use a different implementation of IFunnyQuotesService to talk to an alternative backend service. There are multiple named implementations registered into dependency injection container. The instance supplied for IFunnyQuotesService is dependent on the config value. We&amp;rsquo;re going to use config settings to swap out the implementation it will use.
+Explaining config server locally  Create a docker instance of config server:</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/demos/6_hystrix/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/demos/6_hystrix/</guid>
+      <description>Hystrix  Create hystrix dashboard on PCF marketplace. Bind to FunnyQuotesUICore &amp;amp; restart. Access Hystrix dashboard (service &amp;gt; manage from App Manager). Access FunnyQuotesUICore GUI and request a few quotes. Show dashboard and successful counts. Stop backend FunnyQuotesServiceOwin. Request quotes from GUI.  Highlight low latency fallback to default message. Show dashboard failed counts (red).  Keep requesting quotes until circuit is triggered.  Highlight fallback requests in open circuit (blue).</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/demos/7_actuators_tracing_and_metrics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/demos/7_actuators_tracing_and_metrics/</guid>
+      <description>Actuators  Launch FunnyQuotesUICore locally. Access http://localhost:60420/cloudfoundryapplication and show different actuator endpoints and data within them. The following screenshot illustrates the output.
+ Navigate to the same endpoint on PCF to highlight that it&amp;rsquo;s secured when running on the platform.
+ Open up apps manager. (Ensure that app has been opened at least once over https if using self signed certs).
+ Highlight special Steeltoe icon (actuators were detected in the app).</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/demos/8_security/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/demos/8_security/</guid>
+      <description>Security Prerequisites:  SSO Tile installed SSO plan called sso-dev is create and has IDP called &amp;ldquo;gcp&amp;rdquo; configured against google. See https://docs.pivotal.io/p-identity/1-5/#gcp You can access SSO admin portal to edit user&amp;rsquo;s permissions  Steps  Create an instance of SSO from marketplace (call service sso) Bind it to FunnyQuotesUICore &amp;amp; FunnyQuotesServicesOwin Edit application.yml in config repo and enable security. Commit + push Restart both apps Check manifest.yml for SSO settings to use for FunnyQuotesUICore.</description>
+    </item>
+    
+  </channel>
+</rss>

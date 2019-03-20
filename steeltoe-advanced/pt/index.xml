@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pivotal Workshop</title>
+    <link>/pt/</link>
+    <description>Recent content on Pivotal Workshop</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="/pt/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>/pt/concepts/slides/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pt/concepts/slides/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/pt/demos/1_overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pt/demos/1_overview/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/pt/demos/2_basic-push/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pt/demos/2_basic-push/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/pt/demos/3_database/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pt/demos/3_database/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/pt/demos/4_service_discovery/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pt/demos/4_service_discovery/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/pt/demos/5_config_server/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pt/demos/5_config_server/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/pt/demos/6_hystrix/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pt/demos/6_hystrix/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/pt/demos/7_actuators_tracing_and_metrics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pt/demos/7_actuators_tracing_and_metrics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/pt/demos/8_security/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pt/demos/8_security/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
